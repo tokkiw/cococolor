@@ -1,0 +1,144 @@
+@font-face {
+  font-family: 'RAFFAS';
+  src: url('../fonts/RAFFAS.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Trailogen';
+  src: url('../fonts/TrailogenDemo.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ProdesStencil';
+  src: url('../fonts/ProdesStencil-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KozifaDemo';
+  src: url('../fonts/KozifaDemo-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 初始：照片堆叠 */
+.photo-wrap {
+  transition: transform 0.8s ease;
+}
+
+/* 鼠标动过之后：恢复排版 */
+body.active .photo-wrap {
+  transform: none !important;
+}
+
+body {
+  background: #f3efe9;
+}
+
+h1{
+  color: #7D7C7C;
+}
+
+h2{
+  font-family: 'RAFFAS';
+  font-size: 70px;
+}
+
+.photo-wrap {
+  width: 250px;
+  height: 250px;
+  overflow: visible;
+}
+
+.photo {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: zoom-in;
+}
+
+.photo-wrap:hover .photo {
+  transform: scale(1.5);
+  z-index: 10;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+td {
+  overflow: visible;
+}
+
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+
+  z-index: 1000;
+}
+
+#overlay img {
+  width: 600px;
+  height: 600px;
+  object-fit: cover;
+
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+  cursor: zoom-out;
+}
+
+#overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#overlay.show img {
+  transform: scale(1);
+}
+
+.gallery td {
+  padding: 16px;
+}
+
+html, body, * {
+  cursor: none !important;
+}
+
+.tokki {
+  font-family: 'ProdesStencil';
+  font-size: 17px;
+  position: fixed;
+  right: 50px;
+  bottom: 0.6px;
+
+}
+
+.title-info {
+  font-family: 'ProdesStencil';
+  font-size: 17px;
+}
+
+.tokki a {
+  color: inherit;        /* 继承父元素文字颜色 */
+  text-decoration: none; /* 去掉下划线 */
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.tokki a:hover {
+  text-decoration: underline;
+}
