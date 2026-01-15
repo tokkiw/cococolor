@@ -46,27 +46,31 @@ h1{
 
 h2{
   font-family: 'RAFFAS';
-  font-size: 70px;
+  font-size: 75px;
 }
 
 .photo-wrap {
-  width: 250px;
-  height: 250px;
+  width: 300px;
+  height: 300px;
+  position: relative;
   overflow: visible;
+  z-index: 1;
+}
+
+.photo-wrap:hover {
+  z-index: 100;
 }
 
 .photo {
-  width: 250px;
-  height: 250px;
+  width: 300px;
+  height: 300px;
   object-fit: cover;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: zoom-in;
 }
 
 .photo-wrap:hover .photo {
   transform: scale(1.5);
-  z-index: 10;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
 }
 
 td {
@@ -120,16 +124,16 @@ html, body, * {
 
 .tokki {
   font-family: 'ProdesStencil';
-  font-size: 17px;
+  font-size: 19px;
   position: fixed;
-  right: 50px;
+  right: 20px;
   bottom: 0.6px;
 
 }
 
 .title-info {
   font-family: 'ProdesStencil';
-  font-size: 17px;
+  font-size: 20px;
 }
 
 .tokki a {
@@ -141,4 +145,52 @@ html, body, * {
 
 .tokki a:hover {
   text-decoration: underline;
+}
+
+/* popup🌙 遮罩层 */
+#tokki-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 9998;
+}
+
+/* 显示状态 */
+#tokki-modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* 🌸 内容卡片 */
+.tokki-content {
+  background: #fff;
+  padding: 24px;
+  max-width: 420px;
+  text-align: center;
+  transform: scale(0.9);
+  transition: transform 0.4s ease;
+}
+
+#tokki-modal.show .tokki-content {
+  transform: scale(1);
+}
+
+.tokki-content img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 16px;
+}
+
+.tokki-text p {
+  text-align: left;
+  font-family: 'ProdesStencil';
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
 }
