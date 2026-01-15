@@ -38,6 +38,7 @@ body.active .photo-wrap {
 
 body {
   background: #f3efe9;
+  padding-bottom: 65px;
 }
 
 h1{
@@ -46,12 +47,12 @@ h1{
 
 h2{
   font-family: 'RAFFAS';
-  font-size: 75px;
+  font-size: 88px;
 }
 
 .photo-wrap {
-  width: 300px;
-  height: 300px;
+  width: 275px;
+  height: 275px;
   position: relative;
   overflow: visible;
   z-index: 1;
@@ -62,15 +63,17 @@ h2{
 }
 
 .photo {
-  width: 300px;
-  height: 300px;
+  width: 275px;
+  height: 275px;
   object-fit: cover;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.4s ease;
+  cursor: zoom-in;
 }
 
 .photo-wrap:hover .photo {
   transform: scale(1.5);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
 }
 
 td {
@@ -94,8 +97,8 @@ td {
 }
 
 #overlay img {
-  width: 600px;
-  height: 600px;
+  width: 750px;
+  height: 750px;
   object-fit: cover;
 
   transform: scale(0.95);
@@ -124,16 +127,16 @@ html, body, * {
 
 .tokki {
   font-family: 'ProdesStencil';
-  font-size: 19px;
+  font-size: 20px;
   position: fixed;
   right: 20px;
-  bottom: 0.6px;
+  bottom: 0.5px;
 
 }
 
 .title-info {
   font-family: 'ProdesStencil';
-  font-size: 20px;
+  font-size: 26px;
 }
 
 .tokki a {
