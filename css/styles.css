@@ -202,26 +202,3 @@ html, body, * {
   color: #555;
   margin: 0;
 }
-
-/* 📱 手机适配：屏幕宽度小于 768px */
-@media (max-width: 768px) {
-
-  .photo {
-    width: 100%;  /* 填满父容器 */
-    height: auto;
-  }
-
-  table {
-    margin: 0 auto; /* 居中 */
-  }
-
-  .tokki-content {
-    max-width: 95%;
-    transform: scale(1);
-  }
-
-  .tokki-text p {
-    font-size: 18px;
-    line-height: 1.8;
-  }
-}
