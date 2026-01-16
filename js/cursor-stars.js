@@ -6,22 +6,11 @@ cursorHeart.textContent = '♡';
 cursorHeart.style.position = 'fixed';
 cursorHeart.style.left = '0px';
 cursorHeart.style.top = '0px';
-cursorHeart.style.fontSize = '28px'; // 更大更明显
+cursorHeart.style.fontSize = '35px'; // 更大更明显
 cursorHeart.style.color = '#000';
 cursorHeart.style.pointerEvents = 'none';
 cursorHeart.style.zIndex = '9999';
 cursorHeart.style.transition = 'color 0.15s linear';
-
-// 检测是否触屏设备
-const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-
-if (isTouchDevice) {
-  cursorHeart.style.fontSize = '40px'; // 更大，手机上明显
-  cursorHeart.style.textShadow = 'none'; // 不描边
-} else {
-  cursorHeart.style.fontSize = '28px'; // 电脑上稍小
-  cursorHeart.style.textShadow = 'none';
-}
 
 document.body.appendChild(cursorHeart);
 
@@ -70,13 +59,6 @@ animateCursor();
 let hue = 0;
 let rainbowTimer = null;
 
-// 触发彩虹爱心的元素：标题、链接、照片
-const rainbowTargets = [
-  ...document.querySelectorAll('.rainbow-title'),
-  ...document.querySelectorAll('.tokki a'),
-  ...document.querySelectorAll('.photo')
-];
-
 function startRainbow() {
   if (rainbowTimer) return;
 
@@ -92,19 +74,23 @@ function stopRainbow() {
   cursorHeart.style.color = '#000';
 }
 
-/* ========== 4️⃣ DOM 加载完成后绑定触发区域 ========== */
+/* ========== 6️⃣ DOM 加载完成后绑定触发区域 ========== */
 document.addEventListener('DOMContentLoaded', () => {
+  const rainbowTargets = [
+    ...document.querySelectorAll('.rainbow-title'),
+    ...document.querySelectorAll('.tokki a'),
+    ...document.querySelectorAll('.photo')
+  ];
+
   rainbowTargets.forEach(el => {
-    // 鼠标进入/离开
     el.addEventListener('mouseenter', startRainbow);
     el.addEventListener('mouseleave', stopRainbow);
 
-    // 手机触屏
+    // 📱 手机点按
     el.addEventListener('touchstart', startRainbow);
     el.addEventListener('touchend', stopRainbow);
   });
 });
-
 
 /* ========== popup ========== */
 document.addEventListener('DOMContentLoaded', () => {
