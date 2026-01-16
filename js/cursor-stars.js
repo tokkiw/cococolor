@@ -15,17 +15,11 @@ cursorHeart.style.transition = 'color 0.15s linear';
 // 检测是否触屏设备
 const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-// 根据设备设置大小和描边
 if (isTouchDevice) {
-  cursorHeart.style.fontSize = '40px'; // 更大
-  // 使用单个或少量叠加的 text-shadow 来增加轮廓粗度
-  cursorHeart.style.textShadow = `
-    0 0 2px #000,
-    0 0 2px #000,
-    0 0 2px #000
-  `;
+  cursorHeart.style.fontSize = '40px'; // 更大，手机上明显
+  cursorHeart.style.textShadow = 'none'; // 不描边
 } else {
-  cursorHeart.style.fontSize = '28px';
+  cursorHeart.style.fontSize = '28px'; // 电脑上稍小
   cursorHeart.style.textShadow = 'none';
 }
 
