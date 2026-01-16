@@ -136,7 +136,7 @@ html, body, * {
 
 .title-info {
   font-family: 'ProdesStencil';
-  font-size: 23px;
+  font-size: 25px;
 }
 
 .tokki a {
@@ -174,7 +174,7 @@ html, body, * {
 .tokki-content {
   background: #fff;
   padding: 20px;        /* 内边距稍小，避免左右空白太多 */
-  max-width: 500px;     /* 弹窗在电脑端稍大一些 */
+  max-width: 600px;     /* 弹窗在电脑端稍大一些 */
   text-align: center;
 
   display: flex;
@@ -198,13 +198,23 @@ html, body, * {
 .tokki-text p {
   text-align: left;
   font-family: 'ProdesStencil';
-  font-size: 16px;
+  font-size: 21px;
   color: #555;
   margin: 0;
 }
 
 /* 📱 手机适配：屏幕宽度小于 768px */
 @media (max-width: 768px) {
+
+  .photo {
+    width: 100%;  /* 填满父容器 */
+    height: auto;
+  }
+
+  table {
+    margin: 0 auto; /* 居中 */
+  }
+
   .tokki-content {
     max-width: 95%;
     transform: scale(1);
