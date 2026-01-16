@@ -12,6 +12,23 @@ cursorHeart.style.pointerEvents = 'none';
 cursorHeart.style.zIndex = '9999';
 cursorHeart.style.transition = 'color 0.15s linear';
 
+// 检测是否触屏设备
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+// 根据设备设置大小和描边
+if (isTouchDevice) {
+  cursorHeart.style.fontSize = '40px'; // 更大
+  cursorHeart.style.textShadow = `
+    2px 2px 0 #000,
+    -2px 2px 0 #000,
+    2px -2px 0 #000,
+    -2px -2px 0 #000
+  `; // 外轮廓粗一点
+} else {
+  cursorHeart.style.fontSize = '28px';
+  cursorHeart.style.textShadow = 'none';
+}
+
 document.body.appendChild(cursorHeart);
 
 /* ========== 2️⃣ 缓动变量 ========== */

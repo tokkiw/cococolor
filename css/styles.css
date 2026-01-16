@@ -127,7 +127,7 @@ html, body, * {
 
 .tokki {
   font-family: 'ProdesStencil';
-  font-size: 20px;
+  font-size: 24px;
   position: fixed;
   right: 20px;
   bottom: 0.5px;
@@ -136,7 +136,7 @@ html, body, * {
 
 .title-info {
   font-family: 'ProdesStencil';
-  font-size: 26px;
+  font-size: 23px;
 }
 
 .tokki a {
@@ -173,9 +173,14 @@ html, body, * {
 /* 🌸 内容卡片 */
 .tokki-content {
   background: #fff;
-  padding: 24px;
-  max-width: 420px;
+  padding: 20px;        /* 内边距稍小，避免左右空白太多 */
+  max-width: 500px;     /* 弹窗在电脑端稍大一些 */
   text-align: center;
+
+  display: flex;
+  flex-direction: column;    /* 垂直排列图片 + 文字 */
+  justify-content: space-between;  /* 图片靠上，文字靠下 */
+
   transform: scale(0.9);
   transition: transform 0.4s ease;
 }
@@ -187,13 +192,20 @@ html, body, * {
 .tokki-content img {
   width: 100%;
   height: auto;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .tokki-text p {
   text-align: left;
   font-family: 'ProdesStencil';
   font-size: 16px;
-  line-height: 1.6;
   color: #555;
+  margin: 0;
 }
+
+/* 📱 手机适配：屏幕宽度小于 768px */
+@media (max-width: 768px) {
+  .tokki-content {
+    max-width: 90%;       /* 弹窗占屏幕宽度 90% */
+    font-size: 18px;      /* 文字更大 */
+  }
