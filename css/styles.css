@@ -206,6 +206,12 @@ html, body, * {
 /* 📱 手机适配：屏幕宽度小于 768px */
 @media (max-width: 768px) {
   .tokki-content {
-    max-width: 90%;       /* 弹窗占屏幕宽度 90% */
-    font-size: 18px;      /* 文字更大 */
+    max-width: 95%;
+    transform: scale(1);
   }
+
+  .tokki-text p {
+    font-size: 18px;
+    line-height: 1.8;
+  }
+}

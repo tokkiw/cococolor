@@ -18,12 +18,12 @@ const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 // 根据设备设置大小和描边
 if (isTouchDevice) {
   cursorHeart.style.fontSize = '40px'; // 更大
+  // 使用单个或少量叠加的 text-shadow 来增加轮廓粗度
   cursorHeart.style.textShadow = `
-    2px 2px 0 #000,
-    -2px 2px 0 #000,
-    2px -2px 0 #000,
-    -2px -2px 0 #000
-  `; // 外轮廓粗一点
+    0 0 2px #000,
+    0 0 2px #000,
+    0 0 2px #000
+  `;
 } else {
   cursorHeart.style.fontSize = '28px';
   cursorHeart.style.textShadow = 'none';
